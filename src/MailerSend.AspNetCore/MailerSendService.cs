@@ -52,8 +52,8 @@ public class MailerSendService
 
         var variables = to.Select(recipient => new
         {
-            recipient.Email,
-            Substitutions = recipient?.Substitutions?
+            Email = recipient.Email,
+            data = recipient?.Substitutions?
                 .Select(kvp => new { Var = kvp.Key, kvp.Value })
         });
 
@@ -61,8 +61,8 @@ public class MailerSendService
         {
             variables = variables.Concat(cc.Select(recipient => new
             {
-                recipient.Email,
-                Substitutions = recipient?.Substitutions?
+                Email = recipient.Email,
+                data = recipient?.Substitutions?
                .Select(kvp => new { Var = kvp.Key, kvp.Value })
             }));
         }
@@ -71,8 +71,8 @@ public class MailerSendService
         {
             variables = variables.Concat(bcc.Select(recipient => new
             {
-                recipient.Email,
-                Substitutions = recipient?.Substitutions?
+                Email = recipient.Email,
+                data = recipient?.Substitutions?
                .Select(kvp => new { Var = kvp.Key, kvp.Value })
             }));
         }
@@ -93,7 +93,7 @@ public class MailerSendService
             Html = html,
             Template_id = templateId,
             Attachments = attachments,
-            Variables = variables,
+            Personalization = variables,
             Send_at = sendAtUts
         };
 
