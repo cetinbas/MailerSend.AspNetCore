@@ -100,8 +100,6 @@ public class MailerSendService
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
 
-        string tuvieja = requestBody.ToString();
-
         var response = await _httpClient.PostAsJsonAsync(
                 "email", requestBody, jsonOptions, cancellationToken);
 
