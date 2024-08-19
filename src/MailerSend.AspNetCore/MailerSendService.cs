@@ -53,8 +53,7 @@ public class MailerSendService
         var variables = to.Select(recipient => new
         {
             Email = recipient.Email,
-            data = recipient?.Substitutions?
-                .Select(kvp => new { Var = kvp.Key, kvp.Value })
+            data = recipient?.Substitutions
         });
 
         if (cc is not null)
@@ -62,8 +61,7 @@ public class MailerSendService
             variables = variables.Concat(cc.Select(recipient => new
             {
                 Email = recipient.Email,
-                data = recipient?.Substitutions?
-               .Select(kvp => new { Var = kvp.Key, kvp.Value })
+                data = recipient?.Substitutions
             }));
         }
 
@@ -72,8 +70,7 @@ public class MailerSendService
             variables = variables.Concat(bcc.Select(recipient => new
             {
                 Email = recipient.Email,
-                data = recipient?.Substitutions?
-               .Select(kvp => new { Var = kvp.Key, kvp.Value })
+                data = recipient?.Substitutions
             }));
         }
 
@@ -102,6 +99,8 @@ public class MailerSendService
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
+
+        string tuvieja = requestBody.ToString();
 
         var response = await _httpClient.PostAsJsonAsync(
                 "email", requestBody, jsonOptions, cancellationToken);
