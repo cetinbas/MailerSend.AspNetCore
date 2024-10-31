@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Version>1.0.0</Version>
-		<TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<Description>ASP.NET Core library for MailerSend</Description>
 		<Authors>Vassilis Panos</Authors>
 		<Copyright>Copyright © 2022 Vassilis Panos</Copyright>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageTags>MailerSender;Mail</PackageTags>
 		<RepositoryUrl>https://github.com/vassilis-panos/MailerSend.AspNetCore</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/vassilis-panos/MailerSend.AspNetCore</PackageProjectUrl>

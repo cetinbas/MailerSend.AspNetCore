@@ -52,7 +52,7 @@ public class MailerSendService
 
         var variables = to.Select(recipient => new
         {
-            Email = recipient.Email,
+			recipient.Email,
             data = recipient?.Substitutions
         });
 
@@ -60,7 +60,7 @@ public class MailerSendService
         {
             variables = variables.Concat(cc.Select(recipient => new
             {
-                Email = recipient.Email,
+				recipient.Email,
                 data = recipient?.Substitutions
             }));
         }
@@ -69,7 +69,7 @@ public class MailerSendService
         {
             variables = variables.Concat(bcc.Select(recipient => new
             {
-                Email = recipient.Email,
+				recipient.Email,
                 data = recipient?.Substitutions
             }));
         }
